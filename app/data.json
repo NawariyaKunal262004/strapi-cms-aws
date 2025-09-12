@@ -1,0 +1,22 @@
+{
+  "content": [
+    {
+      "id": 1757653314077,
+      "title": "Strapi-Terraform Project",
+      "description": "Strapi-Terraform Project Deployed on aws cloud\n",
+      "category": "",
+      "createdAt": "2025-09-12T05:01:54.077Z",
+      "status": "published"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123"
+    }
+  ],
+  "sessions": [
+    "token_1757653238343"
+  ]
+}

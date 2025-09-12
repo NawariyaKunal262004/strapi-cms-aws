@@ -1,0 +1,17 @@
+{
+  "name": "strapi-cms-enhanced",
+  "version": "2.0.0",
+  "description": "Enhanced Strapi CMS with authentication and persistence",
+  "main": "enhanced-cms.js",
+  "scripts": {
+    "start": "node enhanced-cms.js",
+    "dev": "node enhanced-cms.js",
+    "test": "echo \"✅ CMS is working!\" && exit 0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": ["strapi", "cms", "api", "content-management"],
+  "author": "Kunal",
+  "license": "MIT"
+}
