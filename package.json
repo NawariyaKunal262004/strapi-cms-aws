@@ -1,0 +1,11 @@
+{
+  "name": "strapi-cms-project",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "cd app && npm start",
+    "install": "cd app && npm install"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

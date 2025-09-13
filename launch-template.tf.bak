@@ -1,0 +1,55 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+data "aws_ami" "amazon_linux_2023" {
+  most_recent = true
+  owners      = ["amazon"]
+  
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*-x86_64"]
+  }
+}
+
+# Launch Template
+resource "aws_launch_template" "web_server_template" {
+  name_prefix   = "web-server-"
+  image_id      = data.aws_ami.amazon_linux_2023.id
+  instance_type = "t3.micro"
+  key_name      = "strapi-key"
+  
+  vpc_security_group_ids = ["sg-012f0914897601022"]
+  
+  user_data = base64encode(file("${path.module}/automated_user_data.sh"))
+  
+  tag_specifications {
+    resource_type = "instance"
+    tags = {
+      Name = "automated-web-server"
+    }
+  }
+}
+
+# Instance from Launch Template
+resource "aws_instance" "automated_server" {
+  launch_template {
+    id      = aws_launch_template.web_server_template.id
+    version = "$Latest"
+  }
+  
+  subnet_id = "subnet-015d4587679616f2e"
+}
+
+output "server_ip" {
+  value = aws_instance.automated_server.public_ip
+}
