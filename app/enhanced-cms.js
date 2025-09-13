@@ -267,8 +267,8 @@ app.get('/health', (req, res) => {
   });
 });
 
-app.listen(port, 'localhost', () => {
-  console.log(`🚀 Enhanced Strapi CMS running at http://localhost:${port}`);
-  console.log(`📊 Admin Panel: http://localhost:${port}/admin`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`🚀 Enhanced Strapi CMS running on port ${port}`);
+  console.log(`📊 Admin Panel: /admin`);
   console.log(`🔑 Default login: admin / admin123`);
 });
