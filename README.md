@@ -1,48 +1,76 @@
 # Strapi CMS Complete Project
 
-## Project Structure
+A lightweight CMS built with Express.js - **No AWS charges, completely free to deploy!**
+
+## 🚀 Quick Deploy (Free)
+
+### Option 1: Railway (Recommended)
+1. Go to [railway.app](https://railway.app)
+2. Sign up with GitHub
+3. Click "Deploy from GitHub repo"
+4. Select this repository
+5. ✅ Your app will be live in 2 minutes!
+
+### Option 2: Render
+1. Go to [render.com](https://render.com)
+2. Connect your GitHub account
+3. Select this repo
+4. Build Command: `cd app && npm install`
+5. Start Command: `cd app && npm start`
+
+### Option 3: Vercel
+```bash
+npx vercel --cwd app
+```
+
+## 💻 Run Locally
+
+```bash
+# Clone the repo
+git clone https://github.com/NawariyaKunal262004/strapi-cms-aws.git
+cd strapi-cms-aws
+
+# Install dependencies
+cd app
+npm install
+
+# Start the server
+npm start
+```
+
+Visit: http://localhost:1337
+
+## 📁 Project Structure
 ```
 strapi-complete-project/
 ├── README.md              # This file
-├── main.tf               # Terraform infrastructure
-├── user_data.sh          # Server setup script
-├── app/                  # Strapi application
-│   ├── index.js         # Main app file
-│   ├── package.json     # Dependencies
-│   └── node_modules/    # Installed packages
-└── .terraform/          # Terraform state
+├── DEPLOY.md             # Deployment guide
+├── railway.json          # Railway config
+├── app/                  # Main application
+│   ├── enhanced-cms.js   # Server code
+│   ├── package.json      # Dependencies
+│   └── data.json         # Database file
 ```
 
-## Quick Commands
+## 🎯 Features
+- ✅ Content Management System
+- ✅ REST API endpoints
+- ✅ Admin authentication
+- ✅ File-based database (no setup needed)
+- ✅ Responsive admin panel
 
-### Deploy Infrastructure
-```bash
-terraform init
-terraform plan
-terraform apply
-```
+## 🔗 API Endpoints
+- `GET /` - Admin panel
+- `GET /api/content` - Get all content
+- `POST /api/content` - Create content
+- `PUT /api/content/:id` - Update content
+- `DELETE /api/content/:id` - Delete content
 
-### Deploy Application
-```bash
-# Upload app to server
-scp -i ~/.ssh/strapi-key -r app/* ec2-user@<SERVER_IP>:/tmp/
-ssh -i ~/.ssh/strapi-key ec2-user@<SERVER_IP> "sudo cp -r /tmp/* /home/strapi/my-strapi-project/ && sudo systemctl restart strapi"
-```
-
-### Development
+## 🛠️ Development
 ```bash
 cd app
-code .
-npm start  # Run locally for testing
+npm start    # Start server
+# Edit enhanced-cms.js to add features
 ```
 
-## Current Status
-- ✅ Server: 3.237.92.147
-- ✅ Live Site: http://3.237.92.147:1337/admin
-- ✅ API: http://3.237.92.147:1337/api/content
-
-## Next Steps
-1. Edit app/index.js to add features
-2. Test locally: `cd app && npm start`
-3. Deploy changes to server
-4. Access admin panel to manage content
+**No AWS, no charges, just deploy and use!** 🎉
